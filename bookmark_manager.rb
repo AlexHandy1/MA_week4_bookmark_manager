@@ -5,8 +5,8 @@ env = ENV['RACK_ENV'] ||'development'
 
 DataMapper.setup(:default, "postgres://localhost/bookmark_manager_new_#{env}")
 
-require './lib/link.rb'
-require './lib/tag.rb'
+require_relative './lib/link.rb'
+require_relative './lib/tag.rb'
 
 DataMapper.finalize
 
@@ -30,5 +30,10 @@ class BookmarkManager < Sinatra::Base
     redirect to ('/')
   end
 
+  get '/tags/:text' do
+    tag = Tag.first(text: params[:text])
+    @links = tag ? tag.links : []
+    erb :index
+  end
 end
 

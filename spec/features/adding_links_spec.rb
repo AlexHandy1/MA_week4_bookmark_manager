@@ -16,10 +16,10 @@ feature 'User can add links to the site' do
   end
 
   scenario 'with a few tags' do
-    expect(Link.count).to eq(0)
     visit '/'
-    add_link('Makers Academy', 'http://www.makersacademy.com/', %w(education, ruby))
-    expect(links.tags.map(&:text)).to include 'education', 'ruby'
+    add_link('Makers Academy', 'http://www.makersacademy.com/', %w(education ruby))
+    link = Link.first
+    expect(link.tags.map(&:text)).to include 'education', 'ruby'
   end
 
   def add_link(title, url, tags = [])
