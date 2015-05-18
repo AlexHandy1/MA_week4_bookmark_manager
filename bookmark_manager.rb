@@ -7,6 +7,7 @@ DataMapper.setup(:default, "postgres://localhost/bookmark_manager_#{env}")
 
 require './lib/link.rb'
 require './lib/tag.rb'
+require './lib/user.rb'
 
 DataMapper.finalize
 DataMapper.auto_upgrade!
@@ -36,6 +37,15 @@ class BookmarkManager < Sinatra::Base
     erb :index
   end
 
+  get '/users/new' do
+    erb :'users/new'
+  end
+
+  post '/users' do
+    User.create(email: params[:email],
+                 password: params[:password])
+    redirect to('/')
+  end
 
   run! if app_file == $0
 end
