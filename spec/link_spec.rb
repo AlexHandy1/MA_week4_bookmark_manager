@@ -1,4 +1,4 @@
-describe Link do
+describe Link, :type => :feature do
 
   context "Demonstration of how datamapper works" do
 
