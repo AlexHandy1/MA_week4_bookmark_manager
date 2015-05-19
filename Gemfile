@@ -10,6 +10,7 @@ gem 'rack-flash3'
 gem 'bcrypt-ruby'
 gem 'rake'
 gem 'pg'
+gem 'bundler'
 
 group :test do
   gem 'capybara'

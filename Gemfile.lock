@@ -106,6 +106,7 @@ PLATFORMS
 
 DEPENDENCIES
   bcrypt-ruby
+  bundler
   capybara
   data_mapper
   database_cleaner
