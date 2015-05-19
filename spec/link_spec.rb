@@ -1,8 +1,10 @@
-describe Link, :type => :feature do
+require 'link'
+require 'database_cleaner'
 
-  context "Demonstration of how datamapper works" do
+describe Link do
+  context "used as an example of how datamapper works" do
 
-    it 'should be created and then retrieved from the db' do
+    it "should be created and then retrieved from the database" do
       expect(Link.count).to eq(0)
 
       Link.create(title: 'Makers Academy',
@@ -10,14 +12,19 @@ describe Link, :type => :feature do
 
       expect(Link.count).to eq(1)
 
-      link = Link.first
+     # Link.update(title: 'Hey Academy',
+     #              url: 'http://www.makersacademy.co.uk')
+     #this did work
 
+      link = Link.first
       expect(link.url).to eq('http://www.makersacademy.com/')
       expect(link.title).to eq('Makers Academy')
 
-      link.destroy
+      Link.destroy
+
       expect(Link.count).to eq(0)
     end
-  end
-end
 
+  end
+
+end

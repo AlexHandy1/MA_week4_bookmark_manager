@@ -1,24 +1,25 @@
-require 'sinatra/base'
 require 'data_mapper'
+require 'sinatra/base'
 require 'rack-flash'
 
-env = ENV['RACK_ENV'] || 'development'
+env = ENV['RACK_ENV'] ||'development'
 
-DataMapper.setup(:default, "postgres://localhost/bookmark_manager_#{env}")
+DataMapper.setup(:default, "postgres://localhost/bookmark_manager_new_#{env}")
 
-require './lib/link.rb'
-require './lib/tag.rb'
-require './lib/user.rb'
+require_relative './lib/link.rb'
+require_relative './lib/tag.rb'
+require_relative './lib/user.rb'
 
 DataMapper.finalize
+
 DataMapper.auto_upgrade!
 
-
 class BookmarkManager < Sinatra::Base
-  set :views, proc { File.join(root,'views') }
+  set :views, proc { File.join(root, 'views') }
   enable :sessions
-  set :session_secret, 'super secret'
+  set :session_secret, 'super_secret'
   use Rack::Flash
+  use Rack::MethodOverride
 
   get '/' do
     @links = Link.all
@@ -29,10 +30,10 @@ class BookmarkManager < Sinatra::Base
     url = params['url']
     title = params['title']
     tag = params['tags'].split(' ').map do |tag|
-        Tag.first_or_create(text: tag)
+      Tag.first_or_create(text: tag)
     end
     Link.create(url: url, title: title, tags: tag)
-    redirect to('/')
+    redirect to ('/')
   end
 
   get '/tags/:text' do
@@ -42,31 +43,48 @@ class BookmarkManager < Sinatra::Base
   end
 
   get '/users/new' do
-    @user = User.new #different implementation across tutorial
+    @user = User.new
     erb :'users/new'
   end
 
   post '/users' do
-    @user = User.create(email: params[:email],
-                 password: params[:password],
-                 password_confirmation: params[:password_confirmation])
-    session[:user_id] = @user.id
+    @user = User.create(email: params[:email], password: params[:password], password_confirmation: params[:password_confirmation])
+
     if @user.save
       session[:user_id] = @user.id
       redirect to('/')
     else
-      flash[:notice] = "Sorry, your passwords do not match"
+      flash.now[:errors] = @user.errors.full_messages
       erb :'users/new'
     end
   end
 
-    helpers do
+  get '/sessions/new' do
+    erb :'sessions/new'
+  end
 
-      def current_user
-        @current_user ||= User.get(session[:user_id]) if session[:user_id]
-      end
+  post '/sessions' do
+    email, password = params[:email], params[:password]
+    user = User.authenticate(email, password)
 
+    if user
+      session[:user_id] = user.id
+      redirect to ('/')
+    else
+      flash[:errors] = ['The email or password is incorrect']
+      erb :'sessions/new'
     end
+  end
 
-  run! if app_file == $0
+  delete '/sessions' do
+    flash[:notice] = 'Good bye!'
+    session['user_id'] = nil
+    redirect to ('/')
+  end
+
+  helpers do
+    def current_user
+     @current_user ||= User.get(session[:user_id]) if session[:user_id]
+    end
+  end
 end
