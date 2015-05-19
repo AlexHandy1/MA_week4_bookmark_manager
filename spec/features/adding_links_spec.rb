@@ -1,6 +1,5 @@
 require 'capybara/rspec'
-require 'link'
-require 'tag'
+require 'spec_helper'
 
 feature 'User can add links to the site' do
   scenario 'and creates a new link on homepage' do

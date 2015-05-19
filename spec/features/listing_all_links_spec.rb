@@ -1,6 +1,5 @@
 require 'capybara/rspec'
-require 'link'
-require 'tag'
+require 'spec_helper'
 
 feature 'User browses through the links' do
 

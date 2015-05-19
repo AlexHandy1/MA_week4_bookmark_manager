@@ -1,4 +1,3 @@
-require 'link'
 require 'database_cleaner'
 
 describe Link do

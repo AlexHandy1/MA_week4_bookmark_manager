@@ -2,9 +2,8 @@ get '/sessions' do
   erb :'sessions/new'
 end
 
-
 post '/sessions/new' do
-  email, password = params[:email], params[:password]
+  email, password = params["email"], params["password"]
   user = User.authenticate(email, password)
 
   if user
@@ -16,8 +15,8 @@ post '/sessions/new' do
   end
 end
 
-
 delete '/sessions' do
   flash[:notice] = 'Goodbye'
-  session[:user_id]
+  session[:user_id] = nil
+  redirect to ('/')
 end

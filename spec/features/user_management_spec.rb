@@ -1,3 +1,5 @@
+require 'spec_helper'
+
 feature 'User signs up' do
 
   scenario 'and they are registered on website' do
