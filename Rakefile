@@ -1,7 +1,7 @@
 require 'rspec/core/rake_task'
 require 'rubocop/rake_task'
 require 'data_mapper'
-require './app/data_mapper_setup'
+#require 'data_mapper_setup' #where is this? #what do?
 
 RuboCop::RakeTask.new :cop
 RSpec::Core::RakeTask.new :spec
