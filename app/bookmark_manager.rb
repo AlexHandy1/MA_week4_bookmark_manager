@@ -21,26 +21,26 @@ class BookmarkManager < Sinatra::Base
   use Rack::Flash
   use Rack::MethodOverride
 
-  get '/' do
-    @links = Link.all
-    erb :index
-  end
+  # get '/' do
+  #   @links = Link.all
+  #   erb :index
+  # end
 
-  post '/links' do
-    url = params['url']
-    title = params['title']
-    tag = params['tags'].split(' ').map do |tag|
-      Tag.first_or_create(text: tag)
-    end
-    Link.create(url: url, title: title, tags: tag)
-    redirect to ('/')
-  end
+  # post '/links' do
+  #   url = params['url']
+  #   title = params['title']
+  #   tag = params['tags'].split(' ').map do |tag|
+  #     Tag.first_or_create(text: tag)
+  #   end
+  #   Link.create(url: url, title: title, tags: tag)
+  #   redirect to ('/')
+  # end
 
-  get '/tags/:text' do
-    tag = Tag.first(text: params[:text])
-    @links = tag ? tag.links : []
-    erb :index
-  end
+  # get '/tags/:text' do
+  #   tag = Tag.first(text: params[:text])
+  #   @links = tag ? tag.links : []
+  #   erb :index
+  # end
 
   get '/users/new' do
     @user = User.new
@@ -78,7 +78,7 @@ class BookmarkManager < Sinatra::Base
 
   delete '/sessions' do
     flash[:notice] = 'Good bye!'
-    session['user_id'] = nil
+    session[:user_id'] = nil
     redirect to ('/')
   end
 
