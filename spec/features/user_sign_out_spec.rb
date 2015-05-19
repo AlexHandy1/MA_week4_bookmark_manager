@@ -8,12 +8,12 @@ feature 'user signs out' do
 
   scenario 'while being signed in' do
     sign_in('ah.com', 'works')
-    click_button 'Sign out'
+    click_button "Sign out"
     expect(page).to have_content('Good bye!')
     expect(page).not_to have_content('Welcome, ah.com')
   end
 
-  #extracte into new structure
+  #extract into new structure
   def sign_in(email, password)
     visit '/sessions/new'
     fill_in :email, with: email
