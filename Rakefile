@@ -1,5 +1,5 @@
-require 'rspec/core/rake_task'
-require 'rubocop/rake_task'
+# require 'rspec/core/rake_task'
+# require 'rubocop/rake_task'
 require 'data_mapper'
 #require 'data_mapper_setup' #where is this? #what do?
 

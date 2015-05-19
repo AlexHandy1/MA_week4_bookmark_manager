@@ -10,6 +10,7 @@ gem 'rack-flash3'
 gem 'bcrypt-ruby'
 gem 'rake'
 gem 'rspec'
+gem 'rubocop'
 
 group :test do
   gem 'capybara'
