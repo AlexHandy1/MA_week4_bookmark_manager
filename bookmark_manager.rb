@@ -4,7 +4,7 @@ require 'rack-flash'
 
 env = ENV['RACK_ENV'] ||'development'
 
-DataMapper.setup(:default, "postgres://localhost/bookmark_manager_new_#{env}")
+DataMapper.setup(:default, ENV['DATABASE_URL'] || "postgres://localhost/bookmark_manager_new_#{env}")
 
 require_relative './lib/link.rb'
 require_relative './lib/tag.rb'
