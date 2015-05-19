@@ -8,6 +8,13 @@
   <% end %>
 </ul>
 
+<p> Tags so far <p>
+<ul>
+  <% @tags.each do |tag| %>
+    <li><%= tag.text %> </li>
+  <%end%>
+</ul>
+
 <div id="new-link">
   <form action='/links' method='post'>
     Title: <input type='text' name='title'>

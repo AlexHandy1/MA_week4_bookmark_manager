@@ -20,6 +20,12 @@ feature 'User browses through the links' do
     expect(page).to have_content'Makers Academy'
   end
 
+  #why failing - implementation works
+  scenario 'and can see a list of available tags' do
+    visit '/'
+    expect(page).to have_content('whatever')
+  end
+
   scenario 'and can search filtered links' do
     visit '/tags/whatever'
     expect(page).not_to have_content('Makers Academy')
