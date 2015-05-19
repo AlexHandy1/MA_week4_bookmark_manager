@@ -1,0 +1,44 @@
+Extra function checklist:
+
+Show the list of available tags on the homepage
+  >> display tags from database?
+
+Move the form to add a link to its own route
+  >> don't understand
+
+Add user_id to tags and links. Display who the link was submitted by. Same for a tag
+  >> link up tables?
+
+Allow the user to add a link to favourites (this will be a many-to-many relationship)
+  >> how sure a favourite?
+
+
+Display how many users favourited the link
+  >> ordering/ sorting
+
+Create a user profile page that will show the links they submitted, tags they created and their favourites.
+  >> user profile route
+
+Display the link to the user's profile at the top of the page if the user is logged in
+  >> link to this route
+
+Implement forgotten password functionality
+  >> Stage 9
+
+Redirect the user with a flash message if a logged in user tries to sign up or sign in
+  >>
+
+Send a welcome email when the user signs up
+  >> implement email forwarding functionality
+
+Create validations for all models:
+email must have the correct format (see an example in Datamapper Validations)
+email and password must be present
+link must have a title and a url
+tag must have some text
+Add a description property to the link.
+Add a username to the User model, so that username instead of an email was shown next to the link.
+
+
+
+
