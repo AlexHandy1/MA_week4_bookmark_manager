@@ -6,6 +6,9 @@ Show the list of available tags on the homepage
 Move the form to add a link to its own route
   >> don't understand
 
+Add something here for Heroku
+
+
 Add user_id to tags and links. Display who the link was submitted by. Same for a tag
   >> link up tables?
 
