@@ -36,6 +36,7 @@ post '/sessions/passwordlost' do
 
  session[:user_id] = user.id
  flash[:notice] = "Thanks, you will receive an email shortly"
+ send_simple_message
  erb :'sessions/lost'
 end
 
