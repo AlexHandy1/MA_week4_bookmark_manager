@@ -23,7 +23,7 @@ task :auto_upgrade => [:before] do
   # (e.g. changed the type of one of the properties)
   # they will not be upgraded because that'd lead to data loss.
 
-  require './app/data_mapper_setup'
+  require './app/data_setup'
   DataMapper.auto_upgrade!
   puts "Auto-upgrade complete (no data loss)"
 end
@@ -35,7 +35,7 @@ task :auto_migrate => [:before] do
   # described in your models, even if this
   # leads to data loss, use auto_migrate:
 
-  require './app/data_mapper_setup'
+  require './app/data_setup'
   DataMapper.auto_migrate!
   puts "Auto-migrate complete (data was lost)"
 end
