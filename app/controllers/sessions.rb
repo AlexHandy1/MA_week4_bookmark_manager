@@ -27,7 +27,31 @@ end
 
 post '/sessions/passwordlost' do
  user =  User.first(email: params[:email])
+
+ user.password_token = (1..50).map{('A'..'Z').to_a.sample}.join
+ p user.password_token
+
+ user.password_token_timestamp = Time.now
+ user.save
+
  session[:user_id] = user.id
  flash[:notice] = "Thanks, you will receive an email shortly"
  erb :'sessions/lost'
 end
+
+get '/sessions/reset_password/:token' do
+  @token = params[:token]
+  erb :'sessions/reset'
+end
+
+post '/sessions/reset_password' do
+  @token = params[:token]
+  @user = User.first(password_token: @token)
+  @user.password = params[:password]
+  @user.password_confirmation = params[:password_confirmation]
+  @user.save
+  redirect to('/')
+end
+
+
+

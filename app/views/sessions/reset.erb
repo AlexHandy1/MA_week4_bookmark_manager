@@ -1,0 +1,6 @@
+<form action='/sessions/reset_password' method='post'>
+  <input type='hidden' name='token' value="<%=@token%>">
+  <input type="text" name="password">
+  <input type="text" name="password_confirmation">
+  <button>Submit</button>
+</form>
