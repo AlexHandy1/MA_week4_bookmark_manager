@@ -5,6 +5,8 @@ class Tag
 
   has n, :links, through: Resource
 
+  validates_presence_of :text
+
   property :id, Serial
   property :text, String
 end

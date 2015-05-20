@@ -7,7 +7,7 @@ Other to-do
 
 Extra function checklist:
 
-Show the list of available tags on the homepage
+Show the list of available tags on the homepage (DONE)
   >> display tags from database?
 
 Move the form to add a link to its own route
@@ -39,11 +39,11 @@ Send a welcome email when the user signs up
   >> implement email forwarding functionality
 
 Create validations for all models:
-email must have the correct format (see an example in Datamapper Validations)
-email and password must be present
-link must have a title and a url
-tag must have some text
-Add a description property to the link.
+email must have the correct format (see an example in Datamapper Validations) >> DONE
+email and password must be present >> DONE
+link must have a title and a url >> DONE (no message)
+tag must have some text >> DONE (no message)
+Add a description property to the link. >> DONE
 Add a username to the User model, so that username instead of an email was shown next to the link.
 
 

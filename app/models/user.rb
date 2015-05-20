@@ -8,6 +8,7 @@ class User
   attr_accessor :password_confirmation
 
   validates_confirmation_of :password
+  validates_presence_of :password, :email
 
   property :id, Serial
   property :email, String, unique: true,
