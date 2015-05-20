@@ -1,8 +1,8 @@
-get '/sessions' do
+get '/sessions/new' do
   erb :'sessions/new'
 end
 
-post '/sessions/new' do
+post '/sessions' do
   email, password = params["email"], params["password"]
   user = User.authenticate(email, password)
 
