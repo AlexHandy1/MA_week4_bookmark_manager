@@ -10,6 +10,8 @@ class User
   validates_confirmation_of :password
   validates_presence_of :password, :email
 
+  has n, :links
+
   property :id, Serial
   property :email, String, unique: true,
     :format => :email_address,

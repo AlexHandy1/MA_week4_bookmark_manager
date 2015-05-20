@@ -17,7 +17,7 @@ Add user_id to tags and links. Display who the link was submitted by. Same for a
   >> link up tables?
 
 Allow the user to add a link to favourites (this will be a many-to-many relationship)
-  >> how sure a favourite?
+  >> how show a favourite?
 
 
 Display how many users favourited the link
