@@ -24,5 +24,6 @@ require_relative 'controllers/application'
 
 enable :sessions
 set :session_secret, 'super_secret'
+set :server, 'thin'
 use Rack::Flash
 use Rack::MethodOverride
