@@ -8,6 +8,7 @@ require 'sinatra/partial'
 #DATA MAPPER SET-UP
 
 require_relative 'models/link'
+require_relative 'models/favourite'
 require_relative 'models/tag'
 require_relative 'models/user'
 
