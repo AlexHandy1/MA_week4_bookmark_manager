@@ -7,6 +7,6 @@ helpers do
       from: "Mailgun Sandbox <postmaster@sandbox29795a797e5b4c75a3a5375cb657ff3a.mailgun.org>",
       to: "Alex Handy <handy437@gmail.com>",
       subject: 'Hello',
-      text:'https://safe-island-1553.herokuapp.com/sessions/reset_password/#{@user.password_token}'
+      text:'https://safe-island-1553.herokuapp.com/sessions/reset_password/' + @user.password_token
   end
 end
