@@ -3,7 +3,7 @@ require 'sinatra'
 require 'rack-flash'
 require 'mailgun'
 require 'rest-client'
-#require 'sinatra/partial'
+require 'sinatra/partial'
 
 #DATA MAPPER SET-UP
 
@@ -25,5 +25,6 @@ require_relative 'controllers/application'
 enable :sessions
 set :session_secret, 'super_secret'
 set :server, 'webrick'
+set :partial_template_engine, :erb
 use Rack::Flash
 use Rack::MethodOverride

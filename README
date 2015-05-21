@@ -1,13 +1,10 @@
 Extra function checklist:
 
-Show the list of available tags on the homepage
+Show the list of available tags on the homepage (DID OTHER BRANCH)
   >> display tags from database?
 
 Move the form to add a link to its own route
   >> don't understand
-
-Add something here for Heroku
-
 
 Add user_id to tags and links. Display who the link was submitted by. Same for a tag
   >> link up tables?
@@ -35,10 +32,10 @@ Send a welcome email when the user signs up
   >> implement email forwarding functionality
 
 Create validations for all models:
-email must have the correct format (see an example in Datamapper Validations)
-email and password must be present
-link must have a title and a url
-tag must have some text
+email must have the correct format (see an example in Datamapper Validations) (DID OTHER BRANCH)
+email and password must be present (DID OTHER BRANCH)
+link must have a title and a url (DID OTHER BRANCH)
+tag must have some text (DID OTHER BRANCH)
 Add a description property to the link.
 Add a username to the User model, so that username instead of an email was shown next to the link.
 

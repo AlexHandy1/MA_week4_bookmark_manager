@@ -1,18 +1,7 @@
-<head>
-  <link href='/css/style.css' rel='stylesheet'>
-<head>
-
-<ul>
-  <% @links.each do |link| %>
-    <li><a href='<%= link.url %>'><%= link.title %></a></li>
-  <% end %>
-</ul>
-
-<div id="new-link">
-  <form action='/links' method='post'>
-    Title: <input type='text' name='title'>
-    URL: <input type='text' name='url'>
-    Tags: <input type='text' name='tags'>
-    <input type='submit' value= "Add_link">
-  </form>
+<div id='user-links-container'>
+  <ul id='user-links'> <span id='cur-link'> Current Links: </span>
+    <% @links.each do |link| %>
+      <%= partial :link, locals: {link: link} %>
+    <% end %>
+  </ul>
 </div>

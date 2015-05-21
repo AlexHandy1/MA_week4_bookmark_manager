@@ -1,4 +1,26 @@
+<head>
+   <link href='/css/reset.css' rel='stylesheet'>
+   <link href='/css/style.css' rel='stylesheet'>
+</head>
+
+<header>
+  <div id='logo'> <a href='/'>Bookmark Manager</a> </div>
+
+  <div id='add-link'>
+    <a class='button add' href='/links/new'>Add Link </a>
+  </div>
+
+  <div id='sign-up'>
+    <a class='button' href='/users/new'>Sign Up </a>
+  </div>
+
+  <div id='sign-in'>
+    <a class='button' href='/sessions/new'>Sign In </a>
+  </div>
+
+</header>
 <body>
+  <div class='wrapper'>
   <% if flash[:errors] && !flash[:errors].empty? %>
   Sorry, there were the following problems with the form.
     <ul id='errors'>
@@ -8,7 +30,9 @@
     </ul>
   <%end%>
   <% if current_user %>
-    Welcome, <%=current_user.email%>
+    <span id='welcome message '>
+      Welcome, <%=current_user.email%>
+    </span>
     <form action='/sessions' method='post'>
       <input type='hidden' name='_method' value='delete'>
       <input type='submit' value="Sign out">
@@ -20,4 +44,20 @@
       </div>
   <%end%>
   <%=yield%>
+  <div class='push'></div>
+  </div>
+
+<footer>
+  <div id='footer_link'>
+  <a href='/' >
+    Click here to get back to the home page
+  </a>
+  </div>
+
+  <div id='descriptor'>
+    <p> This website is built using Ruby, Sinatra, CSS, HTML and tested with Capybara and Rspec </p>
+  </div>
+</footer>
+
 </body>
+

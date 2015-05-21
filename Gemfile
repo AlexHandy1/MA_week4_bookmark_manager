@@ -13,6 +13,8 @@ gem 'pg'
 gem 'bundler'
 gem 'mailgun-ruby', '~>1.0.3', require: 'mailgun'
 gem 'rest-client', '~> 1.8.0'
+gem 'sinatra-partial'
+gem 'haml'
 
 group :test do
   gem 'capybara'
