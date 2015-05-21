@@ -16,3 +16,11 @@ post '/users' do
     erb :'users/new'
   end
 end
+
+get '/users/profile' do
+  @user_id = session[:user_id]
+  p @user_id
+  @user = User.get(@user_id)
+  p @user
+  erb :'users/profile'
+end
