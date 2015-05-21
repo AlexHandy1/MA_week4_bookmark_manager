@@ -26,5 +26,6 @@ enable :sessions
 set :session_secret, 'super_secret'
 set :server, 'webrick'
 set :partial_template_engine, :erb
+set :public_folder, 'public'
 use Rack::Flash
 use Rack::MethodOverride
