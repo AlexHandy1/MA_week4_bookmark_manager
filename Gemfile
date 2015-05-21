@@ -11,6 +11,7 @@ gem 'bcrypt-ruby'
 gem 'rake'
 gem 'pg'
 gem 'bundler'
+gem 'mailgun-ruby', '~>1.0.3', require: 'mailgun'
 
 group :test do
   gem 'capybara'
