@@ -12,6 +12,7 @@ require_relative 'models/user'
 #CONTROLLER SET-UP
 require_relative 'data_setup' #remember to require actual data_setup file
 require_relative 'helpers/application'
+require_relative 'helpers/mailgun'
 
 require_relative 'controllers/users'
 require_relative 'controllers/sessions'
