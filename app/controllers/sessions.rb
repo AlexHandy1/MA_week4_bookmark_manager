@@ -53,6 +53,7 @@ post '/sessions/reset_password' do
   @user.password = params[:password]
   @user.password_confirmation = params[:password_confirmation]
   @user.save
+  @user.destroy
   redirect to('/')
 end
 
