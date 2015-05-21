@@ -1,3 +1,5 @@
+require 'rest-client'
+
 helpers do
   def send_simple_message
       RestClient.post 'https://api:key-3ax6xnjp29jd6fds4gc373sgvjxteol0'\
