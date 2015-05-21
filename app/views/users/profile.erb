@@ -1,4 +1,11 @@
 <h1> USER PROFILE </h1>
 
-Links: <%=@user.links.get(@user_id).title%>
-Tags: <%=@user.tags.get(@user_id).text%>
+<ul>
+<li>
+  Links [#count <%=@links.all(:user_id => @user_id).count %>] >> <%=@links.all(:user_id => @user_id).map(&:title)%>
+</li>
+<li>
+  Tags: [#count <%=@tags.all(:user_id => @user_id).count %>]
+  >> <%=@tags.all(:user_id => @user_id).map(&:text)%>
+</li>
+</ul>
