@@ -2,6 +2,7 @@ require 'data_mapper'
 require 'sinatra'
 require 'rack-flash'
 require 'mailgun'
+require 'rest-client'
 #require 'sinatra/partial'
 
 #DATA MAPPER SET-UP

@@ -37,7 +37,7 @@ post '/sessions/passwordlost' do
  session[:user_id] = user.id
  flash[:notice] = "Thanks, you will receive an email shortly"
  # Send your message through the client
- @mg_client.send_message "https://safe-island-1553.herokuapp.com", @message_params
+ send_simple_message
  erb :'sessions/lost'
 end
 
