@@ -28,15 +28,14 @@ get '/sessions/passwordlost' do
 end
 
 post '/sessions/passwordlost' do
- user =  User.first(email: params[:email])
+ @user =  User.first(email: params[:email])
 
- user.password_token = (1..50).map{('A'..'Z').to_a.sample}.join
- p user.password_token
+ @user.password_token = (1..50).map{('A'..'Z').to_a.sample}.join
 
- user.password_token_timestamp = Time.now
- user.save
+ @user.password_token_timestamp = Time.now
+ @user.save
 
- session[:user_id] = user.id
+ session[:user_id] = @user.id
  flash[:notice] = "Thanks, you will receive an email shortly"
  # Send your message through the client
  send_simple_message
