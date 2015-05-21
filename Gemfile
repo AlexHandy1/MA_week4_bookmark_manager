@@ -11,7 +11,7 @@ gem 'bcrypt-ruby'
 gem 'rake'
 gem 'pg'
 gem 'bundler'
-# gem 'mailgun-ruby', '~>1.0.3', require: 'mailgun'
+gem 'mailgun-ruby', '~>1.0.3', require: 'mailgun'
 gem 'rest-client', '~> 1.8.0'
 
 group :test do
