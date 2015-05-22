@@ -8,12 +8,11 @@ post '/links' do
   tag = params['tags'].split(' ').map do |tag|
     Tag.first_or_create(text: tag, user_id: current_user.id)
   end
-
   description = params['description']
-  p description
   source = params['source']
-  favourite = Favourite.first_or_create(tick: params['fav'], user_id: current_user.id).tick #addresses array conversion error so passes out a string
+  link = Link.create(url: url, title: title, tags: tag, description: description, source: source, user_id: current_user.id)
+  p link
+  favourite = Favourite.first_or_create(tick: params['fav'], user_id: current_user.id, link_id: link.id)
   p favourite
-  link = Link.create(url: url, title: title, tags: tag, description: description, source: source, user_id: current_user.id, favourites: favourite)
   redirect to ('/')
 end

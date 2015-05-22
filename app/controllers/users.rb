@@ -22,5 +22,10 @@ get '/users/profile' do
   @links = Link.all
   @tags = Tag.all
   @user = User.get(@user_id)
+  #Show the link ids attached to favourite for @user_id and if favourite.tick == "favourite"
+    #get the links added by a user id
+    #get link title for corresponding link id
+    #get only the link ids where favourite.tick == "favourite"
+    #in SQL >> SELECT * FROM "users" WHERE "id" IN (SELECT "title" FROM "links" WHERE "user_id" = 1)
   erb :'users/profile'
 end
